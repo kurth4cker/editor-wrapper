@@ -6,8 +6,7 @@ BINDIR = $(PREFIX)/bin
 BIN = edit
 SCRIPT = edit.sh
 
-all:
-	# no-op
+all: $(BIN)
 
 clean:
 	rm -f $(BIN)
