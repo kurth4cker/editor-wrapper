@@ -5,6 +5,9 @@ if set. Otherwise it fallbacks to `vi` command, which is standard editor.
 ## Installation
 Set your variables in Makefile and just run:
 
+    make
+
+    # if necessary as root
     make install
 
 Or optionally place `edit.sh` in your `$PATH` manually.
