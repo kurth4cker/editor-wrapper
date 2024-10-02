@@ -1,25 +1,34 @@
 .POSIX:
+SCDOC = scdoc
 
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
+MANPREFIX = $(PREFIX)/share/man
 
-BIN = edit
+PROGRAM = edit
 SCRIPT = edit.sh
 
-all: $(BIN)
+MAN1 = edit.1
+
+all: $(PROGRAM) $(MAN1)
 
 clean:
-	rm -f $(BIN)
+	rm -f $(PROGRAM)
 
-install: $(BIN)
+install:
 	mkdir -p $(DESTDIR)$(BINDIR)
-	cp -f $(BIN) $(DESTDIR)$(BINDIR)
+	cp -f $(PROGRAM) $(DESTDIR)$(BINDIR)
+	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
+	cp -f $(MAN1) $(DESTDIR)$(MANPREFIX)/man1
 
 uninstall:
-	rm -f $(DESTDIR)$(BINDIR)/$(BIN)
-	-rmdir $(DESTDIR)$(BINDIR)
+	rm -f $(DESTDIR)$(BINDIR)/$(PROGRAM)
+	rm -f $(DESTDIR)$(MANPREFIX)/man1/$(MAN1)
 
-.SUFFIXES: .sh
+.SUFFIXES: .sh .scd
 .sh:
-	cat < $< > $@
+	cp $< $@
 	chmod 755 $@
+
+.scd:
+	$(SCDOC) < $< > $@
