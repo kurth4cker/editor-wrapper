@@ -14,15 +14,17 @@ edit - run configured editor
 
 - *WAYLAND_EDITOR* and *WAYLAND_DISPLAY* -> run *$WAYLAND_EDITOR*
 - *X11_EDITOR* and *DISPLAY* -> run *$X11_EDITOR*
+- *CLI_EDITOR* -> run *$CLI_EDITOR*
 - no one ise set -> run *$EDITOR* or _vi_
 
 # ENVIRONMENT
 
-- *WAYLAND_EDITOR*: Run on wayland sessions
-- *X11_EDITOR*: Run on x11 sessions
-- *EDITOR*: run if others are not possible
-- *WAYLAND_DISPLAY*: if set this is a wayland session
-- *DISPLAY*: if set and WAYLAND_DISPLAY is not set this is a x11 session
+- *WAYLAND_EDITOR*: Run on wayland sessions.
+- *X11_EDITOR*: Run on x11 sessions.
+- *CLI_EDITOR*: Run if no others are set and this is set.
+- *EDITOR*: Run if others are not possible.
+- *WAYLAND_DISPLAY*: If set, this is a wayland session.
+- *DISPLAY*: If set and WAYLAND_DISPLAY is not set, this is a x11 session.
 
 # SEE ALSO
 
@@ -39,10 +41,16 @@ Report bugs to kurth4cker's public inbox:
 - Web Interface: https://lists.sr.ht/~kurth4cker/public-inbox
 - Mail Address: ~kurth4cker/public-inbox@lists.sr.ht
 
-## Known Bugs
+# TIPS
+If you want to every program execute *edit* itself. You can set *$EDITOR* to
+*edit*. But you should also set *$CLI_EDITOR* to avoid infinite self execution
+of *edit*:
 
-When *$EDITOR* or one of other editor variables set to *edit*, *edit* is
-infinitely executes itself. Don't set any *$EDITOR* variable to *edit*.
+```
+export WAYLAND_EDITOR=gedit
+export CLI_EDITOR=vim
+export EDITOR=edit
+```
 
 # AUTHORS
 
