@@ -13,7 +13,7 @@ MAN1 = edit.1
 all: $(PROGRAM) $(MAN1)
 
 clean:
-	rm -f $(PROGRAM)
+	rm -f $(PROGRAM) $(MAN1)
 
 install:
 	mkdir -p $(DESTDIR)$(BINDIR)
