@@ -2,6 +2,9 @@
 Simple wrapper script for keeping your hands friendly. It just exec's `$EDITOR`
 if set. Otherwise it fallbacks to `vi` command, which is standard editor.
 
+**Usability Note:** I think simply setting the `$EDITOR` environment variable is
+more simple and usefull. So.. You probably would never need such a script.
+
 ## Installation
 ### Requirements
 Default compilation requires:
