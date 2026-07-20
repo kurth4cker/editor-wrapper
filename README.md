@@ -1,3 +1,7 @@
+# ARCHIVAL NOTE
+I lost interest.
+
+
 # edit
 Simple wrapper script for keeping your hands friendly. It just exec's `$EDITOR`
 if set. Otherwise it fallbacks to `vi` command, which is standard editor.
